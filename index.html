@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>GithubSearch</title>
+</head>
+<body class="root">
+    <header class="header">
+        <div class="header__title">
+            <img src="./pictures/github-logo.svg" alt="logo" class="header__logo">
+            <h1 class="header__title_text">GitHub Поиск</h1>
+        </div>
+        <form action="" class="form header__form">
+            <input type="text" class="input form__input" placeholder="Искать в GitHub" minlength="4">
+            <button class="button form__button">Найти</button>
+        </form>
+    </header>
+    <section class="repositories">
+        <p class="repository__length">Найдено <span class="repository__length_value"></span> результатов</p>
+    </section>
+    <template id="repositories__unit">
+        <div class="repositories__unit">
+            <img src="./pictures/folder-svgrepo-com.svg" alt="file" class="repositories__unit-img">
+            <div class="repositories__unit_info">
+                <a href="#" class="unit_info-title"></a>
+                <p class="unit_info-subtitle"></p>
+            </div>
+        </div>
+    </template>
+    <script src="./index.js"></script>
+</body>
+</html>
