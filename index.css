@@ -91,6 +91,19 @@
 }
 
 
+.loading {
+    display: none;
+    margin: 0 0 40px 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+.loading__active {
+    display: block;
+}
+
+
 
 
 .repositories__unit {

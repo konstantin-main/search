@@ -3,6 +3,8 @@ const searchButton = document.querySelector('.form__button');
 const repositoriesBox = document.querySelector('.repositories');
 const resultsLength = document.querySelector('.repository__length');
 const resultsLengthValue = document.querySelector('.repository__length_value');
+const loadingText = document.querySelector('.loading');
+console.log(loadingText)
 
 
 
@@ -13,8 +15,7 @@ function searchInfo() {
   fetch(`https://api.nomoreparties.co/github-search?q=*${searchInput.value}*`)
         .then((response) => response.json())
         .then((data) => {
-            // let dives = document.querySelectorAll('.repositories__unit');
-            // dives.remove()
+          loadingText.classList.remove('loading__active');
             console.log(data)
             console.log(data.items)
             resultsLength.classList.add('repository__length_active');
@@ -53,12 +54,14 @@ function showResult(Name, Sername) {
 
 searchButton.addEventListener('click', (evt) => {
     evt.preventDefault();
+    loadingText.classList.add('loading__active');
+    resultsLength.classList.remove('repository__length_active');
     let deleteDiv = new Promise((resolve, reject) => {
 
        deleteReposities = document.querySelectorAll('.repositories__unit');
        deleteRepositiesArr = Array.from(deleteReposities)
        deleteRepositiesArr.forEach((deleteRepositysArr) => {
-       if (repositoriesBox.includes(deleteRepositysArr)) {
+       if (repositoriesBox.childNodes.length > 2) {
         deleteRepositysArr.remove()
        } else { console.log('Вроде получилочь')
        } resolve()
