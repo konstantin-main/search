@@ -19,8 +19,7 @@ function searchInfo() {
             console.log(data)
             console.log(data.items)
             resultsLength.classList.add('repository__length_active');
-            resultsLengthValue.textContent = data.items.length;
-            console.log(data.items.git_url)
+            resultsLengthValue.textContent = data.total_count;
             data.items.forEach((dataItem) => {
                 let Name = dataItem.name
                 let Sername = dataItem.full_name
@@ -69,7 +68,6 @@ searchButton.addEventListener('click', (evt) => {
        } resolve()
       })})
     deleteDiv.then(searchInfo())
-    deleteDiv.catch(console.log('провал'))
     })
     
 
