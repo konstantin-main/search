@@ -12,7 +12,7 @@ console.log(loadingText)
 
 
 function searchInfo() {
-  fetch(`https://api.nomoreparties.co/github-search?q=*${searchInput.value}*`)
+  fetch(`https://api.nomoreparties.co/github-search?q=${searchInput.value}`)
         .then((response) => response.json())
         .then((data) => {
           loadingText.classList.remove('loading__active');
@@ -20,6 +20,7 @@ function searchInfo() {
             console.log(data.items)
             resultsLength.classList.add('repository__length_active');
             resultsLengthValue.textContent = data.items.length;
+            console.log(data.items.git_url)
             data.items.forEach((dataItem) => {
                 let Name = dataItem.name
                 let Sername = dataItem.full_name
@@ -39,6 +40,7 @@ function showResult(Name, Sername) {
     let reposityUnitTitle = repositeryUnit.querySelector('.unit_info-title');
     let repositeryUnitSubtitle = repositeryUnit.querySelector('.unit_info-subtitle');
     reposityUnitTitle.textContent = Name;
+    reposityUnitTitle.setAttribute("href", `https://github.com/${Sername}`)
     repositeryUnitSubtitle.textContent = `${Sername}`;
     repositoriesBox.append(repositeryUnit);
     console.log('Все удалось')
